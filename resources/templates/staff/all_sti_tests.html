@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý xét nghiệm STI</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            padding: 30px;
+            color: #333;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #2c3e50;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: white;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #007acc;
+            color: white;
+        }
+
+        input[type="text"],
+        input[type="datetime-local"] {
+            font-size: 14px;
+            padding: 4px;
+        }
+
+        button {
+            font-size: 14px;
+            padding: 6px 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+<h2>Quản lý kết quả xét nghiệm STI</h2>
+<table>
+    <tr>
+        <th>Khách hàng</th>
+        <th>Tên xét nghiệm</th>
+        <th>Trạng thái</th>
+        <th>Kết quả</th>
+        <th>Thời gian kết quả</th>
+        <th>Cập nhật</th>
+    </tr>
+    <tr th:each="test : ${tests}">
+        <td th:text="${test.customer.fullName}">Tên khách</td>
+        <td th:text="${test.testName}">Tên xét nghiệm</td>
+        <td th:text="${test.status}">Trạng thái</td>
+        <td th:text="${test.result}">Kết quả</td>
+        <td th:text="${#temporals.format(test.resultTime, 'dd/MM/yyyy HH:mm')}">Thời gian</td>
+        <td>
+            <form th:action="@{/sti/update-result}" method="post">
+                <input type="hidden" name="id" th:value="${test.id}" />
+                <input type="text" name="result" placeholder="Kết quả mới" required />
+                <input type="datetime-local" name="resultTime" required />
+                <button type="submit">Cập nhật</button>
+            </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Home</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            padding: 40px;
+        }
+
+        h2 {
+            color: #2a7ae2;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #2a7ae2;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #e53935;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #c62828;
+        }
+    </style>
+</head>
+<body>
+<h2>Chào mừng, khách hàng!</h2>
+
+<ul>
+    <li><a th:href="@{/customer/cycle}">Theo dõi chu kỳ kinh nguyệt</a></li>
+    <li><a th:href="@{/customer/consultation}">Đặt lịch tư vấn với tư vấn viên</a></li>
+    <li><a th:href="@{/customer/question1}">Đặt câu hỏi cho tư vấn viên</a></li>
+    <li><a th:href="@{/book}">Đặt lịch xét nghiệm STI</a></li>
+    <li><a th:href="@{/my-tests}">Xem kết quả xét nghiệm STI</a></li>
+</ul>
+
+<form th:action="@{/logout}" method="post">
+    <button type="submit">Đăng xuất</button>
+</form>
+</body>
+</html>

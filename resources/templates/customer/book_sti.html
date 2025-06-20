@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Đặt xét nghiệm STI</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      padding: 40px;
+    }
+
+    h2 {
+      color: #2a7ae2;
+      margin-bottom: 20px;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 400px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      background-color: #2a7ae2;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1a5cc6;
+    }
+  </style>
+</head>
+<body>
+<h2>Đặt xét nghiệm STI</h2>
+<form th:action="@{/sti/book}" method="post" th:object="${stiTest}">
+  <label for="testName">Tên xét nghiệm:</label>
+  <input type="text" th:field="*{testName}" id="testName" required />
+  <button type="submit">Đặt lịch</button>
+</form>
+</body>
+</html>

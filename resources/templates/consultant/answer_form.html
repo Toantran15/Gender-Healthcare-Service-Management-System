@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trả lời câu hỏi</title>
+    <style>
+        body {
+            font-family: 'Arial', 'Segoe UI', Tahoma, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h2 {
+            color: #2a7ae2;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            max-width: 700px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        textarea {
+            font-family: inherit;
+            font-size: 14px;
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            resize: vertical;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #2a7ae2;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #1a5cc6;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #2a7ae2;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<h2>Trả lời câu hỏi từ khách hàng</h2>
+<form th:action="@{/consultant/questions/answer}" th:object="${question}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <p><strong>Câu hỏi:</strong> <span th:text="*{content}"></span></p>
+    <p><strong>Trả lời:</strong><br>
+        <textarea th:field="*{answer}" rows="5" cols="60"></textarea>
+    </p>
+    <button type="submit">Gửi</button>
+</form>
+<a th:href="@{/consultant/questions}">← Quay lại danh sách</a>
+</body>
+</html>
+

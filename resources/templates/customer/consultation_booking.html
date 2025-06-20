@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách lịch đã đặt</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 40px;
+        }
+
+        h2 {
+            color: #2a7ae2;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #2a7ae2;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            color: #2a7ae2;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .action-links a {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+<h2>Danh sách lịch đã đặt</h2>
+<table>
+    <tr>
+        <th>Tên</th>
+        <th>Thời gian</th>
+        <th>Ghi chú</th>
+        <th>Hành động</th>
+    </tr>
+    <tr th:each="a : ${appointments}">
+        <td th:text="${a.customer != null ? a.customer.fullName : 'Không có tên'}">Tên</td>
+        <td th:text="${a.appointmentDateTime != null ? #temporals.format(a.appointmentDateTime, 'dd/MM/yyyy HH:mm') : 'Không có'}">Thời gian</td>
+        <td th:text="${a.reason != null ? a.reason : 'Không có ghi chú'}">Ghi chú</td>
+        <td class="action-links">
+            <a th:href="@{/edit(id=${a.id})}">Sửa</a> |
+            <a th:href="@{/delete(id=${a.id})}" onclick="return confirm('Bạn chắc chắn muốn xóa?')">Xóa</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

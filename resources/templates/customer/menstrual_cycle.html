@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Chu kỳ kinh nguyệt</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            padding: 40px;
+        }
+
+        h2 {
+            color: #c2185b;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            margin-right: 10px;
+            color: #2a7ae2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Theo dõi chu kỳ kinh nguyệt</h2>
+<!-- Form hoặc bảng hiển thị thông tin sẽ được thêm ở đây -->
+
+<a th:href="@{/customer/home}">← Quay lại</a>
+<a th:href="@{/customer/form-cycle}">+ Thêm chu kỳ</a>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sửa lịch tư vấn</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 40px;
+        }
+
+        h2 {
+            color: #2a7ae2;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input[type="datetime-local"],
+        textarea {
+            width: 100%;
+            max-width: 500px;
+            padding: 10px;
+            font-size: 14px;
+            font-family: inherit;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-top: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        button {
+            margin-top: 20px;
+            background-color: #2a7ae2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1b5dbf;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Sửa lịch tư vấn</h2>
+
+<form th:action="@{/customer/consultation/update}" th:object="${appointment}" method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    <label for="appointmentDateTime">Thời gian tư vấn:</label>
+    <input type="datetime-local" th:field="*{appointmentDateTime}" id="appointmentDateTime" required />
+
+    <label for="reason">Ghi chú:</label>
+    <textarea th:field="*{reason}" id="reason"></textarea>
+
+    <button type="submit">Cập nhật</button>
+</form>
+
+</body>
+</html>

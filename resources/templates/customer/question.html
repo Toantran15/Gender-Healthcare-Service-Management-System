@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Chu kỳ kinh nguyệt</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 40px;
+        }
+
+        h2 {
+            color: #2a7ae2;
+            margin-bottom: 20px;
+        }
+
+        a {
+            display: inline-block;
+            margin: 10px 10px 0 0;
+            padding: 10px 16px;
+            background-color: #2a7ae2;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        a:hover {
+            background-color: #1b5dbf;
+        }
+    </style>
+</head>
+<body>
+<h2>Đặt câu hỏi</h2>
+<!-- Form hoặc bảng hiển thị thông tin sẽ được thêm ở đây -->
+
+<a th:href="@{/customer/home}">← Quay lại trang chính</a>
+<a th:href="@{/ask}">Đặt câu hỏi mới</a>
+<a th:href="@{/list}">Xem câu trả lời</a>
+</body>
+</html>

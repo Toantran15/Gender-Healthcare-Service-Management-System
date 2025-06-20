@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang chủ</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #2c3e50;
+        }
+
+        a {
+            font-size: 16px;
+            color: #007acc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+<h1>Chào mừng đến với hệ thống chăm sóc sức khỏe giới tính</h1>
+<p><a th:href="@{/login}">Đăng nhập</a></p>
+<p><a th:href="@{/register}">Đăng ký</a></p>
+</body>
+</html>

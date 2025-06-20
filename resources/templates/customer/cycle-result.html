@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kết quả chu kỳ</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 40px;
+        }
+
+        h2 {
+            color: #2a7ae2;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            padding: 12px 18px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.05);
+            font-size: 16px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #2a7ae2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Kết quả tính toán:</h2>
+<ul>
+    <li>Ngày rụng trứng: <span th:text="${info['Ovulation Day']}"></span></li>
+    <li>Khoảng thời gian dễ thụ thai: <span th:text="${info['Fertile Start']}"></span> đến <span th:text="${info['Fertile End']}"></span></li>
+    <li>Ngày bắt đầu kỳ kinh tiếp theo: <span th:text="${info['Next Period Start']}"></span></li>
+    <li>Nhắc uống thuốc tránh thai: <span th:text="${info['Take Pill Reminder']}"></span></li>
+</ul>
+
+<a th:href="@{/customer/home}">← Quay lại</a>
+
+</body>
+</html>

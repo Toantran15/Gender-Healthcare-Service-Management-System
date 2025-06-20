@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Đặt câu hỏi</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            padding: 40px;
+        }
+
+        h2 {
+            color: #2a7ae2;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        textarea {
+            width: 100%;
+            max-width: 600px;
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            font-size: 14px;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            resize: vertical;
+        }
+
+        button {
+            margin-top: 10px;
+            background-color: #2a7ae2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1b5dbf;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Gửi câu hỏi của bạn</h2>
+
+<form th:action="@{/customer/question/ask}" th:object="${question}" method="post">
+    <label for="content">Nội dung câu hỏi:</label><br/>
+    <textarea id="content" th:field="*{content}" rows="5" required></textarea><br/><br/>
+    <button type="submit">Gửi câu hỏi</button>
+</form>
+
+</body>
+</html>

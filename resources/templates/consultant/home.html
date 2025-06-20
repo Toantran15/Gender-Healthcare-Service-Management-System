@@ -1,0 +1,47 @@
+<!-- templates/consultant/home.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Consultant Home</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2a7ae2;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #2a7ae2;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<h1>Welcome Consultant!</h1>
+<p>Trang dành cho tư vấn viên chăm sóc sức khỏe.</p>
+<ul>
+    <li><a th:href="@{/consultant/list}">Lịch tư vấn</a></li>
+    <li><a th:href="@{/consultant/questions}">Xem & Trả lời câu hỏi</a></li>
+</ul>
+<a th:href="@{/logout}">Logout</a>
+</body>
+</html>

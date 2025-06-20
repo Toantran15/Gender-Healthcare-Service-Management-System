@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Đặt lịch tư vấn</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            padding: 40px;
+        }
+
+        h2 {
+            color: #2a7ae2;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            max-width: 600px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="datetime-local"],
+        textarea {
+            width: 100%;
+            font-size: 14px;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        button {
+            margin-top: 20px;
+            background-color: #2a7ae2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1b5dbf;
+        }
+
+        p {
+            margin-top: 20px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Đặt lịch tư vấn với chuyên gia</h2>
+
+<form th:action="@{/customer/consultation/book}" th:object="${appointment}" method="post">
+    <label for="name">Tên khách hàng:</label>
+    <input type="text" th:value="${name}" id="name" readonly />
+
+    <label for="appointmentDateTime">Thời gian tư vấn:</label>
+    <input type="datetime-local" th:field="*{appointmentDateTime}" id="appointmentDateTime" required />
+
+    <label for="reason">Ghi chú:</label>
+    <textarea th:field="*{reason}" id="reason"></textarea>
+
+    <button type="submit">Đặt lịch</button>
+</form>
+
+<p th:if="${message}" th:text="${message}"></p>
+
+</body>
+</html>
+
